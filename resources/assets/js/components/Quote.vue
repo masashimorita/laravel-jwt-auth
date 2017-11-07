@@ -37,9 +37,9 @@
             onUpdate() {
                 this.editing = false;
                 let vm = this;
+                axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
                 axios.put('/api/quote/' + this.qt.id, {
                     content: this.editValue,
-                    token: localStorage.getItem('token')
                 })
                     .then((response) => {
                         vm.qt.content = vm.editValue;

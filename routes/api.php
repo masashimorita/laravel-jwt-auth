@@ -17,7 +17,7 @@ Route::get('/quotes', 'QuoteController@getQuotes');
 Route::post('/user', 'UserController@register');
 Route::post('/user/login', 'UserController@login');
 
-Route::group(['middleware' => 'jwt.auth'], function() {
+Route::group(['middleware' => 'jwt-auth'], function() {
     Route::post('/quote', 'QuoteController@postQuote');
     Route::put('/quote/{id}', 'QuoteController@putQuote');
     Route::delete('/quote/{id}', 'QuoteController@deleteQuote');
